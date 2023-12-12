@@ -2,20 +2,17 @@ import pygame, sys
 
 from settings import *
 from sprites import *
+from asset_loader import *
 
 class Game:
     def __init__(self):
         self.running = True
 
         self.screen = pygame.display.set_mode((WIN_WIDTH, WIN_WIDTH))
-        pygame.display.set_caption("blue square that moves across the screen")
-        icon = pygame.image.load('Driving home for christmas/assets/images/0000FF.png.png').convert_alpha()
-        pygame.display.set_icon(icon)
         self.clock=pygame.time.Clock()
 
+        self.asset_loader = Asset_Loader()
 
-        pygame.mixer.init()
-        pygame.mixer.music.load("Driving home for christmas/assets/music/Driving Home For Christmas.mp3")
         pygame.mixer.music.play(-1)
 
     def draw(self):
@@ -24,6 +21,14 @@ class Game:
         self.all_sprites.draw(self.screen)
         self.clock.tick(FPS)
         pygame.display.update()
+
+    def createTilemap(self):
+        for i,row in enumerate(tilemap):
+            for j,column in enumerate(row):
+                if column=='B':
+                    Block(self,j,i)
+                if column == 'P':
+                    Player(self,j,i)
 
     def events(self):
         for event in pygame.event.get():
@@ -42,7 +47,7 @@ class Game:
     def new(self):
         self.all_sprites = pygame.sprite.LayeredUpdates()
 
-        self.player = Player(self, 1, 1)
+        self.createTilemap()
 
 if __name__ == "__main__":
     game = Game()
