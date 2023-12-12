@@ -10,4 +10,4 @@ class Asset_Loader:
         
 
         # IMAGES
-        self.player_image = pygame.image.load("Driving home for christmas/assets/images/Car Game.png").convert_alpha()
+        self.player_image = pygame.image.load("Driving home for christmas/assets/images/GreenCar.png").convert_alpha()

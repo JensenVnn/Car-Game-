@@ -11,7 +11,7 @@ class Player(pygame.sprite.Sprite):
 
         self.x=x*TILESIZE
         self.y=y*TILESIZE
-        self.width=TILESIZE
+        self.width=TILESIZE * 2
         self.height=TILESIZE
 
         self.x_change = 0
