@@ -9,13 +9,13 @@ class Game:
 
         self.screen = pygame.display.set_mode((WIN_WIDTH, WIN_WIDTH))
         pygame.display.set_caption("blue square that moves across the screen")
-        icon = pygame.image.load('assets/images/0000FF.png.png').convert_alpha()
+        icon = pygame.image.load('Driving home for christmas/assets/images/0000FF.png.png').convert_alpha()
         pygame.display.set_icon(icon)
         self.clock=pygame.time.Clock()
 
 
         pygame.mixer.init()
-        pygame.mixer.music.load("assets/music/Driving Home For Christmas.mp3")
+        pygame.mixer.music.load("Driving home for christmas/assets/music/Driving Home For Christmas.mp3")
         pygame.mixer.music.play(-1)
 
     def draw(self):
