@@ -94,8 +94,7 @@ class Block(pygame.sprite.Sprite):
         self.width = TILESIZE
         self.height = TILESIZE
 
-        self.image = pygame.Surface([self.width, self.height])
-        self.image.fill("red")
+        self.image = self.game.asset_loader.main_tree
 
         self.rect = self.image.get_rect()
         self.rect.x = self.x
