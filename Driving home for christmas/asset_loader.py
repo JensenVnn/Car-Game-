@@ -9,3 +9,4 @@ class Asset_Loader:
 
         # IMAGES
         self.player_image = pygame.image.load("Driving home for christmas/assets/images/GreenCar.png").convert_alpha()
+        self.ground_image = pygame.image.load("Driving home for christmas/assets/images/snow-tilemap.png").convert_alpha()
