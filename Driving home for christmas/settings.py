@@ -4,8 +4,9 @@ TILESIZE = 64
 
 FPS = 60
 
-PLAYER_LAYER = 2
-BLOCK_LAYER = 1
+PLAYER_LAYER = 3
+BLOCK_LAYER = 2
+GROUND_LAYER = 1
 
 tilemap = [
     "BBBBBBBBBBBBBBB",
@@ -13,8 +14,8 @@ tilemap = [
     "B.............B",
     "B.............B",
     "B.............B",
-    "B....B....BB..B",
-    "B...BB.P......B",
+    "B.............B",
+    "B......P......B",
     "B.............B",
     "B.............B",
     "B.............B",

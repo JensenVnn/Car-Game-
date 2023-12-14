@@ -16,9 +16,12 @@ class Game:
 
         self.asset_loader = Asset_Loader()
 
+        pygame.mixer.music.play(-1)
+
     def createTilemap(self):
         for i,row in enumerate(tilemap):
             for j,column in enumerate(row):
+                Ground(self, j, i)
                 if column=='B':
                     Block(self,j,i)
                 if column == 'P':
@@ -37,6 +40,7 @@ class Game:
     def new(self):
         self.all_sprites = pygame.sprite.LayeredUpdates()
         self.blocks = pygame.sprite.LayeredUpdates()
+        self.ground_blocks = pygame.sprite.LayeredUpdates()
 
         self.createTilemap()
 
