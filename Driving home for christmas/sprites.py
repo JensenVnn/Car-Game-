@@ -18,7 +18,9 @@ class Player(pygame.sprite.Sprite):
         self.x_change = 0
         self.y_change = 0
 
-        self.image = self.game.asset_loader.player_image
+        self.facing = "up"
+
+        self.image = self.game.asset_loader.player_image_up
 
         self.rect = self.image.get_rect()
         self.rect.x = self.x
@@ -26,6 +28,7 @@ class Player(pygame.sprite.Sprite):
 
     def update(self):
         self.movement()
+        self.animations()
 
         self.rect.x += self.x_change
         self.collision("x")
@@ -41,21 +44,45 @@ class Player(pygame.sprite.Sprite):
             for sprite in self.game.all_sprites:
                 sprite.rect.x += PLAYER_SPEED
             self.x_change -= PLAYER_SPEED
+            self.facing = "left"
 
         if keys[pygame.K_RIGHT]:
             for sprite in self.game.all_sprites:
                 sprite.rect.x -= PLAYER_SPEED
             self.x_change += PLAYER_SPEED
+            self.facing = "right"
 
         if keys[pygame.K_UP]:
             for sprite in self.game.all_sprites:
                 sprite.rect.y += PLAYER_SPEED
             self.y_change -= PLAYER_SPEED
+            self.facing = "up"
 
         if keys[pygame.K_DOWN]:
             for sprite in self.game.all_sprites:
                 sprite.rect.y -= PLAYER_SPEED
             self.y_change += PLAYER_SPEED
+            self.facing = "down"
+
+    def animations(self):
+        up_animation = self.game.asset_loader.player_image_up
+        down_animation = self.game.asset_loader.player_image_down
+        left_animation = self.game.asset_loader.player_image_left
+        right_animation = self.game.asset_loader.player_image_right
+
+        if self.facing == "down":
+            self.image = down_animation
+
+        if self.facing == "up":
+            self.image = up_animation
+
+        if self.facing == "left":
+            self.image = left_animation
+
+        if self.facing == "right":
+            self.image = right_animation
+        
+
 
     def collision(self, direction):
         if direction == "x":
@@ -95,6 +122,7 @@ class Block(pygame.sprite.Sprite):
         self.height = TILESIZE
 
         self.image = self.game.asset_loader.main_tree
+        self.image = pygame.transform.scale(self.image, [self.width * 1.75, self.height * 1.75])
 
         self.rect = self.image.get_rect()
         self.rect.x = self.x

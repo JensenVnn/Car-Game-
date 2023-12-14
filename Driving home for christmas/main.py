@@ -1,7 +1,6 @@
 import pygame, sys
 
 from settings import *
-from asset_loader import *
 from sprites import *
 
 class Game:
@@ -14,7 +13,7 @@ class Game:
 
         self.screen = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
 
-        self.asset_loader = Asset_Loader()
+        self.asset_loader = Asset_Loader(self)
 
         pygame.mixer.music.play(-1)
 
@@ -28,8 +27,8 @@ class Game:
                     Player(self,j,i)
 
     def draw(self):
-        self.screen.fill("gray")
-
+        self.screen.fill((242, 237, 241))
+        
         self.clock.tick(FPS)
         self.all_sprites.draw(self.screen)
         pygame.display.update()
