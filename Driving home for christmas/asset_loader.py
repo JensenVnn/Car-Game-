@@ -17,6 +17,10 @@ class Asset_Loader:
         self.player_image_down = pygame.image.load("Driving home for christmas/assets/images/GreenCar_down.png").convert_alpha()
         self.player_image_left = pygame.image.load("Driving home for christmas/assets/images/GreenCar_left.png").convert_alpha()
         self.player_image_right = pygame.image.load("Driving home for christmas/assets/images/GreenCar_right.png").convert_alpha()
+        self.player_image_turbo = pygame.image.load("Driving home for christmas/assets/images/GreenCar-Turbo.png").convert_alpha()
 
         self.ground_image = pygame.image.load("Driving home for christmas/assets/images/snow-tilemap.png").convert_alpha()
+
+        self.present_image = pygame.image.load("Driving home for christmas/assets/images/WhitePresent.png")
+        self.weezer_image = pygame.image.load("Driving home for christmas/assets/images/weezer.jpg")
     
